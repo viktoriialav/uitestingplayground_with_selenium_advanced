@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "different-tasks-using-selenium"
+version = "0.1.0"
+description = ""
+authors = ["Viktoriia Lavrova"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.4"
+selenium = "^4.27.1"
+webdriver-manager = "^4.0.2"
+pydantic-settings = "^2.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
