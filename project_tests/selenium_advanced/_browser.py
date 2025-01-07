@@ -29,7 +29,7 @@ class Browser:
                                   poll_frequency=self._config.poll_frequency,
                                   ignored_exceptions=self._config.ignored_exceptions)
 
-    def open(self, relative_url):
+    def open(self, relative_url=''):
         self.driver.get(config.settings.base_url + relative_url)
         return self
 
@@ -78,3 +78,10 @@ class Browser:
 
         collection = self.wait.until(command)
         return len(collection)
+
+    def get_text(self, selector):
+        def command(driver: WebDriver) -> str:
+            text = self.driver.find_element(*to_locator(selector)).text
+            return text
+
+        return self.wait.until(command)

@@ -15,6 +15,8 @@
 # specific language governing permissions and limitations
 # under the License.
 
+# Modified by Viktoriia Lavrova (viktoriia.lav2908@gmail.com) inside WebDriverWait.until(self, method, message)
+
 import time
 import typing
 from typing import Callable

@@ -1,8 +1,4 @@
-# from __future__ import annotations
-
-from typing import Union
-
-# from project_tests.selenium_advanced._browser import Browser
+from __future__ import annotations
 
 
 class Element:
@@ -10,8 +6,12 @@ class Element:
         self.selector = selector
         self.browser = browser
 
-    def element(self, selector):
+    def element(self, selector) -> Element:
         return Element(selector, self.browser)
+
+    @property
+    def text(self) -> str:
+        return self.browser.get_text(self.selector)
 
     def collection(self, selector):
         return Collection(selector, self.browser)
