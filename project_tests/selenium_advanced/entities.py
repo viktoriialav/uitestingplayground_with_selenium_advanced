@@ -9,9 +9,20 @@ class Element:
     def element(self, selector) -> Element:
         return Element(selector, self.browser)
 
+    def __call__(self):
+        return self.browser.get_webelement(self.selector)
+
     @property
     def text(self) -> str:
-        return self.browser.get_text(self.selector)
+        return self.browser.get_element_text(self.selector)
+
+    @property
+    def location(self) -> str:
+        return self.browser.get_element_location(self.selector)
+
+    @property
+    def size(self) -> str:
+        return self.browser.get_element_size(self.selector)
 
     def collection(self, selector):
         return Collection(selector, self.browser)
@@ -19,6 +30,18 @@ class Element:
     def click(self):
         self.browser.click(self.selector)
         return self
+
+    def is_visible(self) -> bool:
+        return self.browser.element_is_visible(self.selector)
+
+    def is_hidden(self) -> bool:
+        return not self.is_visible()
+
+    def is_enabled(self) -> bool:
+        return self.browser.element_is_enabled(self.selector)
+
+    def is_clickable(self) -> bool:
+        return self.browser.element_is_clickable(self.selector)
 
 
 class Collection:
