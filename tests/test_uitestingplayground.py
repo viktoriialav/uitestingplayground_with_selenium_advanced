@@ -1,7 +1,6 @@
-from project_tests.selenium_advanced import browser
 
 
-def test_find_button_with_dynamic_id():
+def test_find_button_with_dynamic_id(browser):
     # GIVEN
     browser.open()
     necessary_text = 'Button with Dynamic ID'
@@ -14,7 +13,7 @@ def test_find_button_with_dynamic_id():
     assert necessary_text == founded_text
 
 
-def test_find_button_and_work_with_alert():
+def test_find_button_and_work_with_alert(browser):
     # GIVEN
     browser.open()
 
@@ -28,10 +27,10 @@ def test_find_button_and_work_with_alert():
 
     # THEN
     assert text == 'Primary button pressed'
-    assert browser.find_element('section .container h3')
+    assert browser.element('section .container h3')()
 
 
-def test_button_is_unclickable_after_the_first_click():
+def test_button_is_unclickable_after_the_first_click(browser):
     # GIVEN
     browser.open()
     button_id = '#greenButton'
@@ -50,7 +49,7 @@ def test_button_is_unclickable_after_the_first_click():
     assert green_button_webelement != new_element
 
 
-def test_wait_for_a_page_to_load():
+def test_wait_for_a_page_to_load(browser):
     # GIVEN
     browser.open()
 
@@ -63,7 +62,7 @@ def test_wait_for_a_page_to_load():
     assert text == 'Button Appearing After Delay'
 
 
-def test_wait_for_data_to_appear_after_ajax_request():
+def test_wait_for_data_to_appear_after_ajax_request(browser):
     # GIVEN
     browser.open()
 
@@ -77,7 +76,7 @@ def test_wait_for_data_to_appear_after_ajax_request():
     assert text == 'Data loaded with AJAX get request.'
 
 
-def test_wait_for_data_to_appear_after_client_side_delay():
+def test_wait_for_data_to_appear_after_client_side_delay(browser):
     # GIVEN
     browser.open()
     # browser.set_wait(timeout=15.0)

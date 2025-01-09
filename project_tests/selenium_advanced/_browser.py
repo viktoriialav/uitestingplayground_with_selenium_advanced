@@ -36,9 +36,11 @@ class Browser:
 
     def quit(self):
         self.driver.quit()
+        return self
 
     def close(self):
         self.driver.close()
+        return self
 
     def set_window_size(self, width, height):
         self.driver.set_window_size(width=width, height=height)
